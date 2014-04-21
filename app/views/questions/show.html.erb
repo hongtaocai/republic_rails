@@ -1,0 +1,110 @@
+
+
+<div class="feed-entry-div">
+
+
+  <div class="col-lg-2 col-lg-2-vote-btn">
+
+    <div class="question-vote-div-<%= @question.id %>">
+      <%= @question.voters.length %>
+    </div>
+
+    <% if signed_in? %>
+
+        <div id="question_vote_form_<%= @question.id %>">
+          <% if  current_user.voting_q?(@question) %>
+              <%= render 'publications/unvote_q', question: @question %>
+          <% else %>
+              <%= render 'publications/vote_q', question: @question %>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+  <div class="col-lg-10">
+    <div class="question-title-div">
+      <%= link_to @question.title, @question %>
+    </div>
+
+    <div class="question-author-div">
+      <i> by <%= link_to @question.user.name , @question.user %>, at <%= @question.created_at %> </i>
+    </div>
+
+    <div class="question-author-div">
+      <i> about <%= link_to @question.publication.title, @question.publication %> </i>
+    </div>
+
+    <div class="question-content-div">
+      <%= @question.content %>
+    </div>
+
+
+    <div class="button-group-div">
+      <%= link_to 'Go to Publication', @question.publication, :class => "btn-orange btn",
+                  :method => :get %>
+      <%= link_to 'Add Answer', add_answer_question_path(@question), :class => "btn-orange btn",
+                  :method => :get,  :remote => true,
+                  'data-toggle' =>  "modal", 'data-target' => '#modal-window' %>
+
+    </div>
+
+  </div>
+
+
+
+
+</div>
+
+<div class="col-lg-12 no-padding">
+  <hr>
+</div>
+
+<h3>Answers</h3>
+
+<% @question.answers.each do |answer| %>
+
+
+    <div class="feed-entry-div">
+
+
+      <div class="col-lg-2 col-lg-2-vote-btn">
+
+        <div class="answer-vote-div-<%= answer.id %>">
+          <%= answer.voters.length %>
+        </div>
+
+        <% if signed_in? %>
+
+            <div id="answer_vote_form_<%= answer.id %>">
+              <% if  current_user.voting_r?(answer) %>
+                  <%= render 'unvote_a', answer: answer %>
+              <% else %>
+                  <%= render 'vote_a', answer: answer %>
+              <% end %>
+            </div>
+        <% end %>
+      </div>
+      <div class="col-lg-10">
+
+
+        <div class="answer-content-div">
+          <%= answer.content %>
+        </div>
+
+        <div class="answer-author-div-right">
+          <i> by <%= link_to answer.user.name, answer.user %>, at <%= answer.created_at %> </i>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-lg-12 no-padding">
+      <hr>
+    </div>
+
+
+
+
+
+<% end %>
+

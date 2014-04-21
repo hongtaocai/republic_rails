@@ -1,0 +1,56 @@
+
+
+
+<div class="feed-entry-div">
+
+
+  <div class="col-lg-2 col-lg-2-vote-btn">
+
+    <div class="review-vote-div-<%= @review.id %>">
+      <%= @review.voters.length %>
+    </div>
+
+    <% if signed_in? %>
+
+        <div id="review_vote_form_<%= @review.id %>">
+          <% if  current_user.voting_r?(@review) %>
+              <%= render 'publications/unvote_r', review: @review %>
+          <% else %>
+              <%= render 'publications/vote_r', review: @review %>
+          <% end %>
+        </div>
+    <% end %>
+
+  </div>
+  <div class="col-lg-10">
+    <div>
+      <div class="review-title-div">
+        <%= link_to @review.title, @review %>
+      </div>
+
+      <div class="review-author-div">
+        <i> by <%= link_to @review.user.name, @review.user %>, at <%= @review.created_at %> </i>
+      </div>
+
+      <div class="review-author-div">
+        <i> about <%= link_to @review.publication.title, @review.publication %> </i>
+      </div>
+
+      <div class="review-content-div">
+        <%= @review.content %>
+      </div>
+
+      <div class="button-group-div">
+        <%= link_to 'Go to Publication', @review.publication, :class => "btn-orange btn",
+                    :method => :get %>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-lg-12 no-padding">
+    <hr>
+  </div>
+
+</div>

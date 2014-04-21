@@ -1,0 +1,4 @@
+<%= button_to "Vote", avotes_path(avote: {:answer_id => answer.id, :user_id => current_user.id } ),
+              :method => :post,
+              :remote => 'true',
+              :class => "btn btn-orange btn-vote"%>

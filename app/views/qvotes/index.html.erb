@@ -1,0 +1,27 @@
+<h1>Listing qvotes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Question</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @qvotes.each do |qvote| %>
+      <tr>
+        <td><%= qvote.user_id %></td>
+        <td><%= qvote.question_id %></td>
+        <td><%= link_to 'Show', qvote %></td>
+        <td><%= link_to 'Edit', edit_qvote_path(qvote) %></td>
+        <td><%= link_to 'Destroy', qvote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Qvote', new_qvote_path %>

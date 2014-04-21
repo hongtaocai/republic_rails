@@ -1,0 +1,60 @@
+
+<div class="feed-entry-div">
+  <h3>Trending Publications</h3>
+</div>
+
+<hr>
+
+    <% @publications.each do |publication| %>
+
+
+
+        <div class="feed-entry-div">
+          <div class="publication-statistics-div">
+
+          </div>
+          <div class="publication-title-div">
+            <%= link_to publication.title, publication %>
+          </div>
+          <div class="publication-author-div">
+            <i>by <%= publication.author %> <br> <xxx class="orange-text"><%= publication.voters.count %></xxx> Likes
+              <xxx class="orange-text"><%= publication.questions.length %> </xxx> Questions
+                <xxx class="orange-text"><%= publication.reviews.length %> </xxx> Reviews </i>
+          </div>
+          <div class="publication-abstract-div">
+            <b>Abstract:</b>
+            <%=shorterabstract publication.abstract %>
+          </div>
+
+
+          <% if false %>
+
+          <div class="publication-vote-div-<%=publication.id%>">
+            <%=publication.voters.count %>
+          </div>
+
+
+
+
+          <% if signed_in? %>
+          <div id="publication_vote_form_<%=publication.id%>">
+            <% if  current_user.voting_pub?(publication) %>
+                <%= render 'unvote_pub', publication: publication %>
+            <% else %>
+                <%= render 'vote_pub', publication: publication %>
+            <% end %>
+          </div>
+
+          <% end %>
+
+          <% end %>
+
+        </div>
+
+        <hr>
+
+    <% end %>
+
+<!--<%= link_to 'New Publication', new_publication_path %>-->
+
+

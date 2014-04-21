@@ -1,0 +1,14 @@
+
+
+<p>
+  <strong>User:</strong>
+  <%= @rvote.user_id %>
+</p>
+
+<p>
+  <strong>Review:</strong>
+  <%= @rvote.review_id %>
+</p>
+
+<%= link_to 'Edit', edit_rvote_path(@rvote) %> |
+<%= link_to 'Back', rvotes_path %>

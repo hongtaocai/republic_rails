@@ -1,0 +1,22 @@
+<div class="feed-entry-div">
+<h3>Open Questions</h3>
+  </div>
+
+<hr>
+
+<% @questions.each do |question| %>
+    <div class="feed-entry-div">
+      <div class="question-title-div">
+        <%= link_to question.title, question %>
+      </div>
+
+      <div class="question-content-div">
+        <%= question.content %>
+      </div>
+
+      <div class="question-author-div-right">
+        <i> by <%= link_to question.user.name, question.user %>, at <%= question.created_at %> </i>
+      </div>
+    </div>
+    <hr>
+<% end %>

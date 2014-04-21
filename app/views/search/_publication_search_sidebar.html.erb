@@ -1,0 +1,11 @@
+
+  <li class="current-search">
+    <%= link_to "Publication Results", search_index_path(search_text: session[:search_text], search_type: :publication), method: :get  %>
+  </li>
+  <li>
+    <%= link_to "Question Results", search_index_path(search_text: session[:search_text], search_type: :question), method: :get  %>
+
+  </li>
+  <li>
+    <%= link_to "Review Results", search_index_path(search_text: session[:search_text], search_type: :review), method: :get  %>
+  </li>

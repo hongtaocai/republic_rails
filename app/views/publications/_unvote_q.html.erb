@@ -1,0 +1,5 @@
+<%= button_to "Unvote".html_safe, qvote_path(current_user.qvotes.find_by(question_id: question.id)),
+              :method => :delete,
+              :remote => 'true',
+              :class => "btn btn-orange btn-vote"%>
+

@@ -1,0 +1,2 @@
+$("#publication_vote_form_<%= @voteaction.publication.id %>").html("<%= escape_javascript(render('publications/vote_pub', publication: @voteaction.publication)) %>")
+$(".publication-vote-div-<%= @voteaction.publication.id%>").html("<%= @voteaction.publication.voteactions.count %>")

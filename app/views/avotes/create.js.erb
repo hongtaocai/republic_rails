@@ -1,0 +1,2 @@
+$("#answer_vote_form_<%= @avote.answer.id %>").html("<%= escape_javascript(render('questions/unvote_a', answer: @avote.answer)) %>")
+$(".answer-vote-div-<%=@avote.answer.id%>").html("<%= @avote.answer.voters.count %>")

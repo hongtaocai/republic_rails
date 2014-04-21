@@ -1,0 +1,285 @@
+
+.navbar{
+  border-radius: 0;
+}
+
+.mybar{
+  border-radius: 0;
+}
+
+.projectname {
+  font-weight: bold;
+  font-size: 26px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
+
+.navbar-form.navbar-right:last-child {
+  margin-right: -30px;
+}
+
+input.inputbox.form-control{
+  width: 500px;
+}
+
+.navbar-inverse .navbar-nav > li > a.dropdown-toggle.account-dropdown{
+  color: #ffffff;
+}
+
+.btn-group-vertical{
+  width:100%;
+}
+
+.profile-info{
+  margin: 20px 0 20px 0;
+  border-radius: 4px;
+  border: 1px solid rgb(204, 204, 204);
+}
+
+.profile-pic-div{
+  padding: 10px 0 10px 0;
+  text-align: center;
+}
+
+.profile-name{
+
+}
+
+.feed-entry-div{
+//  margin: 0 0 20px 0;
+//  border-radius: 4px;
+//  border: 1px solid rgb(204, 204, 204);
+  padding: 0 10px 0 10px;
+}
+
+.content-container{
+  margin-top: 70px;
+}
+
+body > div.container.content-container > div.col-md-3 > div > ul > li  {
+
+  color: #aaa;
+  font-weight: bold;
+
+  :hover{
+    border-left: solid gray 1px;
+    background-color: #ffffff;
+    color: rgb(255,88,40);
+  }
+
+}
+
+li.current-search{
+    border-left: solid gray 1px;
+    background-color: #ffffff;
+    color: rgb(255,88,40);
+  a {
+    color: rgb(255,88,40);
+  }
+}
+
+
+.bs-docs-sidebar{
+  position: fixed;
+}
+
+.orange-text{
+  color: rgb(255,88,40);
+}
+
+a:hover {
+    color: rgb(255,88,40) ;
+    text-decoration: none ;
+    background-color: transparent;
+}
+
+.btn.btn-orange{
+  color: #fff;
+  background-color: rgb(255,88,40);
+  border-color: rgb(225,58,10);
+  margin-left: 5px;
+  margin-right: 5px;
+  :hover{
+    background-color: rgb(225,68,20);
+  }
+}
+
+.btn-vote {
+  height: 70px;
+  padding-top: 40px;
+  margin-top: -30px;
+  width: 75px;
+}
+
+.no-padding{
+  padding: 0 0 0 0;
+}
+
+
+.button-group-div{
+  width: 100%;
+  margin-top: 10px;
+  text-align: right;
+}
+
+
+
+.publication-title-div{
+  font-size: 20px;
+  line-height: 25px;
+  width: 100%;
+  padding: 5px 0 5px 0;
+  :hover {
+    color: rgb(255,88,40);
+    background-color: white;
+    text-decoration: none;
+  }
+}
+
+.question-title-div{
+  font-size: 20px;
+  line-height: 25px;
+  width: 100%;
+  padding: 5px 0 5px 0;
+  :hover {
+    color: rgb(255,88,40);
+    background-color: white;
+    text-decoration: none;
+  }
+}
+
+.review-title-div{
+  font-size: 20px;
+  line-height: 25px;
+  width: 100%;
+  padding: 5px 0 5px 0;
+  :hover {
+    color: rgb(255,88,40);
+    background-color: white;
+    text-decoration: none;
+  }
+}
+
+.publication-author-div{
+  font-size: 13px;
+  width: 100%;
+}
+
+.question-author-div{
+  font-size: 13px;
+  width: 100%;
+}
+
+.answer-author-div{
+  font-size: 13px;
+  width: 100%;
+}
+
+body > div.container.content-container > div.col-md-9 > div.feed-entry-div > div.col-lg-10 > div.question-author-div > i > a:hover {
+  color: rgb(255,88,40) !important;
+  text-decoration: none !important ;
+  background-color: transparent !important;
+}
+
+.question-author-div-right{
+  font-size: 13px;
+  width: 100%;
+  text-align: right;
+  margin-top: 5px;
+}
+
+.review-author-div{
+  font-size: 13px;
+  width: 100%;
+}
+
+.review-author-div-right{
+  font-size: 13px;
+  width: 100%;
+  text-align: right;
+  margin-top: 5px;
+}
+
+.answer-author-div{
+  font-size: 13px;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.answer-author-div-right{
+  font-size: 13px;
+  width: 100%;
+  text-align: right;
+  margin-top: 5px;
+}
+
+.publication-abstract-div{
+  font-size: 13px;
+  width: 100%;
+  padding: 5px 0 0 0;
+}
+
+.question-content-div{
+  font-size: 13px;
+  width: 100%;
+  padding: 5px 0 0 0;
+}
+
+.review-content-div{
+  font-size: 13px;
+  width: 100%;
+  padding: 5px 0 0 0;
+}
+
+.answer-content-div{
+  font-size: 13px;
+  width: 100%;
+  padding: 5px 0 0 0;
+}
+
+
+
+.publication-statistics-div{
+  padding: 5px 0 0 0;
+}
+
+div[class*='question-vote-div-']{
+  position: relative;
+  z-index: 999;
+  font-size: 25px;
+  color: white;
+  margin-top: 21px;
+}
+
+div[class*='review-vote-div-']{
+  position: relative;
+  z-index: 999;
+  font-size: 25px;
+  color: white;
+  margin-top: 21px;
+}
+
+div[class*='answer-vote-div-']{
+  position: relative;
+  z-index: 999;
+  font-size: 25px;
+  color: white;
+  margin-top: 21px;
+}
+
+
+
+.col-lg-2-vote-btn {
+  text-align: center;
+}
+
+
+.inputbox.form-control.modal-inputbox{
+  width: 100%;
+  margin-top:20px;
+}
+
+.textarea.form-control.modal-text-area{
+  width: 100%;
+  margin-top: 20px;
+}
+

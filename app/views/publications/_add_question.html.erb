@@ -1,0 +1,50 @@
+ <div class="modal-dialog">
+    <div class="modal-content">
+      <!--<div class="modal-header">-->
+        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
+        <!--<h4 class="modal-title" id="myModalLabel">New Question</h4>-->
+      <!--</div>-->
+
+      <%= form_for(@question) do |f| %>
+
+          <div class="modal-body">
+
+          <div class="publication-title-div">
+            New Question about <%= link_to @publication.title, @publication %>
+          </div>
+
+
+            <% if @question.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+                  <ul>
+                    <% @question.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+            <% end %>
+
+            <div class="field ">
+              <%= f.text_field :title, class:"inputbox form-control modal-inputbox", autocomplete: "off", placeholder: "Question Title" %>
+            </div>
+
+            <div class="field">
+              <%= f.text_area :content, class:"textarea form-control modal-text-area", rows: "20", autocomplete: "off", placeholder: "Question Details" %>
+            </div>
+
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :vote, value: 0 %>
+            <%= f.hidden_field :publication_id, value: @publication.id %>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <%= f.submit "Add Question", class: "btn btn-orange"%>
+          </div>
+
+      <% end %>
+    </div>
+  </div>

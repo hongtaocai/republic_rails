@@ -1,0 +1,2 @@
+$("#review_vote_form_<%= @rvote.review.id %>").html("<%= escape_javascript(render('publications/vote_r', review: @rvote.review)) %>")
+$(".review-vote-div-<%= @rvote.review.id%>").html("<%= @rvote.review.voters.count %>")

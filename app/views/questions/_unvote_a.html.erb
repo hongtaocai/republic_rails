@@ -1,0 +1,4 @@
+<%= button_to "Unvote", avote_path(current_user.avotes.find_by(answer_id: answer.id)),
+              :method => :delete,
+              :remote => 'true',
+              :class => "btn btn-orange btn-vote"%>

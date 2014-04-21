@@ -1,0 +1,156 @@
+
+<div class="feed-entry-div">
+
+  <div class="publication-title-div">
+    <%= @publication.title %>
+  </div>
+  <div class="publication-author-div">
+    <i>by <%= @publication.author %>,
+      <br>
+      <xxx class="orange-text publication-vote-div-<%= @publication.id %>"><%= @publication.voters.count %></xxx>
+      Likes
+      <xxx class="orange-text"><%= @publication.questions.length %> </xxx>
+      Questions
+      <xxx class="orange-text"><%= @publication.reviews.length %> </xxx>
+      Reviews
+      <% if signed_in? %>
+          <xxx id="publication_vote_form_<%= @publication.id %>">
+            <% if  current_user.voting_pub?(@publication) %>
+                <%= render 'unvote_pub', publication: @publication %>
+            <% else %>
+                <%= render 'vote_pub', publication: @publication %>
+            <% end %>
+          </xxx>
+      <% end %>
+      <%= link_to "Find on Google Scholar", @publication.google_url, method: :get, class: "orange-text btn btn-default btn-xs" %>
+    </i>
+  </div>
+  <div class="publication-abstract-div">
+    <b>Abstract:</b>
+    <%= @publication.abstract %>
+  </div>
+
+
+
+  <%#= link_to "Ask A Question", new_question_path %>
+
+  <%#= link_to 'Add Question', new_question_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
+  <div class="button-group-div">
+    <%= link_to 'Add Question ', add_question_publication_path(@publication), :class => "btn-orange btn", :id => "add_question_button",
+                :method => :get, :remote => true, 'data-toggle' => "modal", 'data-target' => '#myModal' %>
+
+    <%= link_to 'Add Review ', add_review_publication_path(@publication), :class => "btn btn-orange",
+                :method => :get, :remote => true, 'data-toggle' => "modal", 'data-target' => '#myModal' %>
+  </div>
+
+</div>
+
+<hr>
+
+<h3>Questions</h3>
+
+<% @publication.questions.each do |question| %>
+
+    <div class="feed-entry-div">
+
+
+      <div class="col-lg-2 col-lg-2-vote-btn">
+
+        <div class="question-vote-div-<%= question.id %>">
+          <%= question.voters.length %>
+        </div>
+
+        <% if signed_in? %>
+
+            <div id="question_vote_form_<%= question.id %>">
+              <% if  current_user.voting_q?(question) %>
+                  <%= render 'unvote_q', question: question %>
+              <% else %>
+                  <%= render 'vote_q', question: question %>
+              <% end %>
+            </div>
+        <% end %>
+      </div>
+      <div class="col-lg-10">
+        <div class="question-title-div">
+          <%= link_to question.title, question %>
+        </div>
+
+        <div class="question-content-div">
+          <%= question.content %>
+        </div>
+
+        <div class="question-author-div-right">
+          <i> by <%= link_to question.user.name, question.user %>, at <%= question.created_at %> </i>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-lg-12 no-padding">
+      <hr>
+    </div>
+
+
+<% end %>
+
+<div class="col-lg-12">
+  <h3>Reviews</h3>
+</div>
+
+
+
+<% @publication.reviews.each do |review| %>
+
+
+    <div class="feed-entry-div">
+
+
+      <div class="col-lg-2 col-lg-2-vote-btn">
+
+        <div class="review-vote-div-<%= review.id %>">
+          <%= review.voters.length %>
+        </div>
+
+        <% if signed_in? %>
+
+            <div id="review_vote_form_<%= review.id %>">
+              <% if  current_user.voting_r?(review) %>
+                  <%= render 'unvote_r', review: review %>
+              <% else %>
+                  <%= render 'vote_r', review: review %>
+              <% end %>
+            </div>
+        <% end %>
+
+      </div>
+      <div class="col-lg-10">
+        <div>
+          <div class="review-title-div">
+            <%= link_to review.title, review %>
+          </div>
+
+          <div class="review-content-div">
+            <%= review.content %>
+          </div>
+
+          <div class="review-author-div-right">
+            <i> by <%= link_to review.user.name, review.user %>, at <%= review.created_at %> </i>
+          </div>
+      </div>
+
+    </div>
+
+    <div class="col-lg-12 no-padding">
+      <hr>
+    </div>
+
+  </div>
+
+
+
+
+<% end %>
+
+

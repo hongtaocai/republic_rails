@@ -1,0 +1,4 @@
+<%= link_to "Unlike", voteaction_path(current_user.voteactions.find_by(publication_id: publication.id)),
+              :method => :delete,
+              :remote => 'true',
+              :class => "orange-text btn btn-default btn-xs"%>

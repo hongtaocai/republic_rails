@@ -1,0 +1,2 @@
+module VoteactionsHelper
+end

@@ -1,0 +1,13 @@
+
+<p>
+  <strong>User:</strong>
+  <%= @avote.user_id %>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @avote.answer_id %>
+</p>
+
+<%= link_to 'Edit', edit_avote_path(@avote) %> |
+<%= link_to 'Back', avotes_path %>

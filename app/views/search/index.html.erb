@@ -1,0 +1,87 @@
+<div class="feed-entry-div">
+  <h3><%= @search_type.slice(0, 1).capitalize + @search_type.slice(1..-1) %> Search Results</h3>
+</div>
+
+<hr>
+
+<% if @publications %>
+
+    <% @publications.each do |publication| %>
+
+        <div class="feed-entry-div">
+          <div class="publication-statistics-div">
+
+          </div>
+          <div class="publication-title-div">
+            <%= link_to publication.title, publication %>
+          </div>
+          <div class="publication-author-div">
+            <i>by <%= publication.author %>,
+              <xxx class="orange-text"><%= publication.voters.count %></xxx>
+              Likes
+              <xxx class="orange-text"><%= publication.questions.length %> </xxx>
+              Questions
+              <xxx class="orange-text"><%= publication.reviews.length %> </xxx>
+              Reviews </i>
+          </div>
+          <div class="publication-abstract-div">
+            <b>Abstract:</b>
+            <%= shorterabstract publication.abstract %>
+          </div>
+        </div>
+        <hr>
+    <% end %>
+
+<% end %>
+
+
+
+<% if @questions %>
+
+    <% @questions.each do |question| %>
+        <div class="feed-entry-div">
+          <div class="question-title-div">
+            <%= link_to question.title, question %>
+          </div>
+
+          <div class="question-content-div">
+            <%= question.content %>
+          </div>
+
+          <div class="question-author-div-right">
+            <i> by <%= link_to question.user.name, question.user %>, at <%= question.created_at %> </i>
+          </div>
+        </div>
+        <hr>
+    <% end %>
+<% end %>
+
+<% if @reviews %>
+
+    <% @reviews.each do |review| %>
+        <div class="feed-entry-div">
+          <div class="review-title-div">
+            <%= link_to review.title, review %>
+          </div>
+
+          <div class="review-content-div">
+            <%= shorterabstract review.content %>
+          </div>
+
+          <div class="review-author-div-right">
+            <i> by <%= link_to review.user.name, review.user %>, at <%= review.created_at %> </i>
+          </div>
+        </div>
+        <hr>
+    <% end %>
+
+<% end %>
+
+
+<script>
+    $(document).ready(function () {
+        $(".nav.bs-docs-sidebar").html('<%= escape_javascript(render("#{@search_type}_search_sidebar")) %>')
+    });
+</script>
+
+

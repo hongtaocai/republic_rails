@@ -1,0 +1,29 @@
+
+
+<p>
+  <strong>User:</strong>
+  <%= @answer.user_id %>
+</p>
+
+<p>
+  <strong>Vote:</strong>
+  <%= @answer.vote %>
+</p>
+
+<p>
+  <strong>Created time:</strong>
+  <%= @answer.created_time %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @answer.content %>
+</p>
+
+<p>
+  <strong>question:</strong>
+  <%= @answer.question_id %>
+</p>
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>

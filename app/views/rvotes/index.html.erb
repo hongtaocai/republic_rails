@@ -1,0 +1,27 @@
+<h1>Listing rvotes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Review</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rvotes.each do |rvote| %>
+      <tr>
+        <td><%= rvote.user_id %></td>
+        <td><%= rvote.review_id %></td>
+        <td><%= link_to 'Show', rvote %></td>
+        <td><%= link_to 'Edit', edit_rvote_path(rvote) %></td>
+        <td><%= link_to 'Destroy', rvote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rvote', new_rvote_path %>

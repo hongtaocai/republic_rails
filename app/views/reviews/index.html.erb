@@ -1,0 +1,23 @@
+<div class="feed-entry-div">
+  <h3>Top Reviews</h3>
+</div>
+
+<hr>
+
+
+<% @reviews.each do |review| %>
+    <div class="feed-entry-div">
+      <div class="review-title-div">
+        <%= link_to review.title, review %>
+      </div>
+
+      <div class="review-content-div">
+        <%= shorterabstract review.content %>
+      </div>
+
+      <div class="review-author-div-right">
+        <i> by <%= link_to review.user.name, review.user %>, at <%= review.created_at %> </i>
+      </div>
+    </div>
+    <hr>
+<% end %>

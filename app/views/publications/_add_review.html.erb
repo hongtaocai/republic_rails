@@ -1,0 +1,46 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+
+
+      <%= form_for(@review) do |f| %>
+
+
+
+        <div class="modal-body">
+
+          <div class="review-title-div">
+            New Review about <%= link_to @publication.title, @publication %>
+          </div>
+
+          <% if @review.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+                <ul>
+                  <% @review.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <div class="field ">
+            <%= f.text_field :title, class:"inputbox form-control modal-inputbox", autocomplete: "off", placeholder: "Review Title" %>
+          </div>
+
+          <div class="field">
+            <%= f.text_area :content, class:"textarea form-control modal-text-area", rows: "20", autocomplete: "off", placeholder: "Review Details" %>
+          </div>
+
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :publication_id, value: @publication.id %>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <%= f.submit "Add Review", class: "btn btn-orange"%>
+        </div>
+      <% end %>
+
+  </div>
+</div>

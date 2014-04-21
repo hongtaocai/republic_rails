@@ -1,0 +1,14 @@
+
+
+<p>
+  <strong>User:</strong>
+  <%= @qvote.user_id %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @qvote.question_id %>
+</p>
+
+<%= link_to 'Edit', edit_qvote_path(@qvote) %> |
+<%= link_to 'Back', qvotes_path %>

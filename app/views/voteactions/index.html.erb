@@ -1,0 +1,23 @@
+<h1>Listing voteactions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @voteactions.each do |voteaction| %>
+      <tr>
+        <td><%= link_to 'Show', voteaction %></td>
+        <td><%= link_to 'Edit', edit_voteaction_path(voteaction) %></td>
+        <td><%= link_to 'Destroy', voteaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Voteaction', new_voteaction_path %>
